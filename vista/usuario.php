@@ -26,7 +26,7 @@
     include "../controlador/Controlador_eliminar_asistencia.php";
         $sql= $conexion->query("SELECT * from usuario");
     ?>
-    <a href="" class="btn btn-primary btn-rounded mb-2"><i class="fa-solid fa-plus"></i> Registrar</a>
+    <a href="registro_usuario.php" class="btn btn-primary btn-rounded mb-2"><i class="fa-solid fa-plus"></i> Registrar</a>
     
     <table class="table table-bordered table-hover col-12" id="example">
   <thead>
