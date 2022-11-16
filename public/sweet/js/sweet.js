@@ -1,5 +1,8 @@
-$(".formulario-eliminar").submit(function (e) {
+
+
+function advertencia(e){
 	e.preventDefault();
+	var url=e.currentTarget.getAttribute('href');
 	Swal.fire({
 		title: '¿Está seguro?',
 		text: '¡ No podrá recuperar este registro !',
@@ -25,8 +28,7 @@ $(".formulario-eliminar").submit(function (e) {
 	}).then((result) => {
 		/* Read more about isConfirmed, isDenied below */
 		if (result.isConfirmed) {
-		  this.submit();
+		  window.location.href=url;
 		}
 	  })
-})
-
+}

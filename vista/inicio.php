@@ -5,12 +5,7 @@
   }
 
 ?>
-<script>
-  function advertencia(){
-    var not=confirm("estas seguro de eliminar???");
-    return not;
-  }
-</script>
+
 <!-- primero se carga el topbar -->
 <?php require('./layout/topbar.php'); ?>
 <!-- luego se carga el sidebar -->
@@ -62,7 +57,7 @@
             <td ><?= $datos->nom_cargo ?></td>
             <td ><?= $datos->entrada ?></td>
             <td ><?= $datos->salida ?></td>
-            <td ><a href="inicio.php?id=<?=$datos->id_asistencia ?>" onclick="return advertencia()" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a></td>
+            <td ><a href="inicio.php?id=<?=$datos->id_asistencia ?>" onclick="advertencia(event)" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a></td>
             </tr>
     <?php
         }

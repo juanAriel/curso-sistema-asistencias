@@ -24,5 +24,13 @@ if(!empty($_GET["id"])){
             })
         })
     </script>
-  <?php  }
- }
+  <?php  } ?>
+<script>
+    setTimeout(() => {
+        window.history.replaceState(null,null,window.location.pathname);
+    }, 0);
+
+
+</script>
+
+ <?php }
