@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(173, 173, 204);
+}
+h1{
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+    color: black;
+}
+#fecha{
+    text-align: center;
+    color: rgb(42, 42, 46);
+    font-weight: normal;
+    font-size: 30px;
+}
+.container{
+    width: 500px;
+    background: white;
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+.acceso{
+    color: blue;
+}
+.ci{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+input{
+    width: 100%;
+    padding: 30px;
+    outline: none;
+}
+.botones{
+    display: flex;
+    margin-top: 20px;
+}
+.entrada{
+    background: rgba(37, 37, 200, 0.82);
+    width: 100%;
+    padding: 25px 35px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+.salida{
+    background: rgba(255, 0, 0, 0.846);
+    width: 100%;
+    padding: 25px 35px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
