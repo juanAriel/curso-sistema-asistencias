@@ -23,6 +23,7 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
 
   <?php
   include "../modelo/conexion.php";
+  include "../controlador/controlador_registrar_empleado.php";
 
   $sql = $conexion->query("SELECT 
   empleado.id_empleado,
@@ -34,7 +35,7 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
   from empleado 
   INNER JOIN cargo ON empleado.cargo = cargo.id_cargo");
   ?>
-  <a href="registro_usuario.php" class="btn btn-primary btn-rounded mb-2"><i class="fa-solid fa-plus"></i> Registrar</a>
+  <a href="registro_empleado.php" class="btn btn-primary btn-rounded mb-2"><i class="fa-solid fa-plus"></i> Registrar</a>
 
   <table class="table table-bordered table-hover col-12" id="example">
     <thead>
