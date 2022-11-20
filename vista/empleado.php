@@ -25,6 +25,7 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
   include "../modelo/conexion.php";
   //include "../controlador/controlador_registrar_empleado.php";
   include "../controlador/controlador_modificar_empleado.php";
+  include "../controlador/controlador_eliminar_empleado.php";
 
   $sql = $conexion->query("SELECT 
   empleado.id_empleado,
@@ -58,7 +59,7 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
           <td><?= $datos->nom_cargo ?></td>
           <td>
             <a href="" data-toggle="modal" data-target="#exampleModal<?= $datos->id_empleado ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-            <a href="usuario.php?id=<?= $datos->id_empleado ?>" onclick="advertencia(event)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+            <a href="empleado.php?id=<?= $datos->id_empleado ?>" onclick="advertencia(event)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
           </td>
         </tr>
 
