@@ -23,7 +23,8 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
 
   <?php
   include "../modelo/conexion.php";
-  include "../controlador/controlador_registrar_empleado.php";
+  //include "../controlador/controlador_registrar_empleado.php";
+  include "../controlador/controlador_modificar_empleado.php";
 
   $sql = $conexion->query("SELECT 
   empleado.id_empleado,
@@ -67,7 +68,7 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header d-flex justify-content-between">
-                <h5 class="modal-title w-100" id="exampleModalLabel">Editar Datos</h5>
+                <h5 class="modal-title w-100" id="exampleModalLabel">Editar Datos empleado</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -84,10 +85,17 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
                     <input type="text" placeholder="Apellido" class="input input__text" name="txtapellido" value="<?= $datos->apellido ?>">
                   </div>
                   <div class="fl-flex-label mb-4 px-2 col-12 ">
-                    <input type="text" placeholder="Usuario" class="input input__text" name="txtusuario" value="<?= $datos->usuario ?>">
+                    <select name="txtcargo" class="input input__select">
+                      <?php 
+                      $sql2 = $conexion->query("select * from cargo");
+                      while($datos2 = $sql2->fetch_object()){ ?>
+                          <option <?= $datos->cargo==$datos2->id_cargo ? 'selected' : '' ?> value="<?= $datos2->id_cargo ?>"><?= $datos2->nombre ?></option>
+                      <?php }
+                      ?>
+                    </select>
                   </div>
                   <div class="text-right p-2">
-                    <a href="usuario.php" class="btn btn-secondary btn-rounded">Atras</a>
+                    <a href="empleado.php" class="btn btn-secondary btn-rounded">Atras</a>
                     <button type="submit" value="ok" name="brnmodificar" class="btn btn-primay btn-rounded">Modificar</button>
                   </div>
                 </form>
