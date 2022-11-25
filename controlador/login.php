@@ -9,6 +9,8 @@ if(!empty($_POST["btningresar"])){
         $sql=$conexion->query("select * from usuario where usuario='$usuario' and password='$password'");
 
         if($datos=$sql->fetch_object()){
+            
+            $_SESSION["id"]=$datos->id_usuario;
             $_SESSION["nombre"]=$datos->nombre;
             $_SESSION["apellido"]=$datos->apellido;
             header("location:../inicio.php");
