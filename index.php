@@ -6,20 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/estilos/estilos.css" >
     <title>Pagina de bienvenida</title>
+
+     <!-- pNotify -->
+     <link href="public/pnotify/css/pnotify.css" rel="stylesheet" />
+        <link href="public/pnotify/css/pnotify.buttons.css" rel="stylesheet" />
+        <link href="public/pnotify/css/custom.min.css" rel="stylesheet" />
+        <!-- pnotify -->
+        <script src="public/pnotify/js/jquery.min.js">
+        </script>
+        <script src="public/pnotify/js/pnotify.js">
+        </script>
+        <script src="public/pnotify/js/pnotify.buttons.js">
+        </script>
 </head>
 <body>
     <h1>BIENVENIDOS, REGISTRA TU ASISTENCIA</h1>
 
     <h2 id="fecha"></h2>
-
+    <?php 
+    include "modelo/conexion.php";
+    include "controlador/controlador_registrar_asistencia.php";
+        ?>
     <div class="container">
         <a class="acceso" href="vista/login/login.php">Ingresar al sistema</a>
         <p class="ci">Ingrese su CI</p>
-        <form action="">
+        <form action="" method="POST">
             <input type="text" placeholder="CI del empleado" name="txtci">
             <div class="botones">
-                <a class="entrada" href="">Entrada</a>
-                <a class="salida" href="">Salida</a>
+                <button class="entrada" type="submit" name="btnentrada" value="ok">Entrada</button>
+                <button class="salida" type="submit" name="btnsalida" value="ok">Salida</button>
             </div>
             
         </form>
