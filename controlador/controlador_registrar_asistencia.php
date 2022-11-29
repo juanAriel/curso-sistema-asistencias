@@ -92,10 +92,28 @@ if (!empty($_POST["btnsalida"])) {
         if ($consulta->fetch_object()->total > 0) {
             $fecha = date("Y-m-d h:i:s");
             $id_empleado = $id->fetch_object()->id_empleado;
-            $busqueda = $conexion->query("select id_asistencia from asistencia where id_empleado=$id_empleado order by id_asistencia desc limit 1");
-            $id_asistencia = $busqueda->fetch_object()->id_asistencia;
+            $busqueda = $conexion->query("select id_asistencia,entrada from asistencia where id_empleado=$id_empleado order by id_asistencia desc limit 1");
+            
 
-            $consultaFecha = $conexion->query(" select salida from asistencia where id_empleado=$id_empleado order by id_asistencia desc limit 1 ");
+            while ($datos=$busqueda->fetch_object()) {
+                $id_asistencia = $datos->id_asistencia;
+                $entradaDB = $datos->entrada;
+            }
+            if (substr($fecha,0,10)!= substr($entradaDB,0,10)) {
+                ?>
+                <script>
+                    $(function notificacion() {
+                        new PNotify({
+                            title: "Incorrecto",
+                            type: "error",
+                            text: "primero registrar tu entrada",
+                            styling: "bootstrap3"
+                        })
+                    })
+                </script>
+           <?php
+            } else {
+                $consultaFecha = $conexion->query(" select salida from asistencia where id_empleado=$id_empleado order by id_asistencia desc limit 1 ");
             $fechaBD = $consultaFecha->fetch_object()->salida;
 
             if (substr($fecha,0,10) == substr($fechaBD,0,10)) { ?>
@@ -135,6 +153,11 @@ if (!empty($_POST["btnsalida"])) {
                     </script>
                 <?php }
             }
+            }
+            
+
+
+            
             
 
             
