@@ -29,7 +29,9 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
   $sql = $conexion->query("SELECT * from usuario");
   ?>
   <a href="registro_usuario.php" class="btn btn-primary btn-rounded mb-2"><i class="fa-solid fa-plus"></i> Registrar</a>
-
+  <div class="text-right mb-2">
+      <a href="../vista/fpdf/ReporteUsuario.php" target="_blank" class="btn btn-success"><i class="fas fa-file-pdf"></i> reportes</a>
+    </div>
   <table class="table table-bordered table-hover col-12" id="example">
     <thead>
       <tr>
